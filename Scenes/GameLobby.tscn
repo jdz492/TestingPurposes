@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://ds0p1osk3o38y"]
+
+[ext_resource type="Texture2D" uid="uid://d3512a5fflaup" path="res://assets/thumb-1920-1205979.png" id="1_bpdpx"]
+[ext_resource type="Script" path="res://Scripts/game_lobby.gd" id="1_tolf7"]
+[ext_resource type="FontFile" uid="uid://ceclvsgcnbm5e" path="res://font/GrapeSoda.ttf" id="2_elp6a"]
+[ext_resource type="Theme" uid="uid://gtfgvk14o2sd" path="res://assets/Default.tres" id="3_hvh2i"]
+[ext_resource type="PackedScene" uid="uid://fppumj8p8pn2" path="res://Scenes/finding_match_label.tscn" id="5_c8a2m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rd8ym"]
+texture = ExtResource("1_bpdpx")
+modulate_color = Color(0.517184, 0.517184, 0.517184, 1)
+
+[node name="GameLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tolf7")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 271.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rd8ym")
+
+[node name="Match_Finder_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 36.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_elp6a")
+theme_override_font_sizes/font_size = 25
+text = "Match Finder"
+
+[node name="Buttons_List" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 215.0
+offset_right = 447.0
+offset_bottom = 255.0
+scale = Vector2(1.12, 1.6)
+
+[node name="FindingMatch_Button" type="Button" parent="Buttons_List"]
+layout_mode = 2
+theme = ExtResource("3_hvh2i")
+text = "Find a Game"
+
+[node name="finding_match_label" parent="." instance=ExtResource("5_c8a2m")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="Buttons_List/FindingMatch_Button" to="." method="_on_finding_match_button_button_down"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgxnevn0v3gpc"]
+
+[ext_resource type="Script" path="res://Scripts/level_01.gd" id="1_tjiaw"]
+[ext_resource type="PackedScene" uid="uid://cbrysq80aeykl" path="res://assets/player.tscn" id="2_fg2mw"]
+[ext_resource type="Texture2D" uid="uid://blkwm5y1x2g1t" path="res://assets/icon.svg" id="2_jj15u"]
+
+[node name="Level01" type="Node2D"]
+script = ExtResource("1_tjiaw")
+PlayerScene = ExtResource("2_fg2mw")
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="2" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(151, 94)
+
+[node name="1" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(280, 116)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(412, 208)
+texture = ExtResource("2_jj15u")

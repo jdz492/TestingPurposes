@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds0p1osk3o38y"]
+
+[ext_resource type="Texture2D" uid="uid://d3512a5fflaup" path="res://assets/thumb-1920-1205979.png" id="1_68wy1"]
+[ext_resource type="FontFile" uid="uid://ceclvsgcnbm5e" path="res://font/GrapeSoda.ttf" id="2_ovg2l"]
+[ext_resource type="Theme" uid="uid://gtfgvk14o2sd" path="res://assets/Default.tres" id="3_25p6h"]
+[ext_resource type="Script" path="res://Scripts/ClientManager.gd" id="4_wndox"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rd8ym"]
+texture = ExtResource("1_68wy1")
+modulate_color = Color(0.517184, 0.517184, 0.517184, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 271.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rd8ym")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 24.0
+offset_right = 180.0
+offset_bottom = 50.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_ovg2l")
+theme_override_font_sizes/font_size = 25
+text = "Lobby Menu"
+
+[node name="Buttons_List" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 71.0
+offset_right = 388.0
+offset_bottom = 111.0
+
+[node name="CreateLobby_Button" type="Button" parent="Buttons_List"]
+layout_mode = 2
+theme = ExtResource("3_25p6h")
+text = "	CREATE LOBBY
+"
+
+[node name="JoinLobby_Button" type="Button" parent="Buttons_List"]
+layout_mode = 2
+theme = ExtResource("3_25p6h")
+text = "JOIN LOBBY
+"
+
+[node name="LeaveLobby_Button" type="Button" parent="Buttons_List"]
+layout_mode = 2
+theme = ExtResource("3_25p6h")
+text = "LEAVE LOBBY"
+
+[node name="StartGame_Button" type="Button" parent="Buttons_List"]
+layout_mode = 2
+theme = ExtResource("3_25p6h")
+text = "START GAME"
+
+[node name="Ready?_Button" type="Button" parent="Buttons_List"]
+layout_mode = 2
+theme = ExtResource("3_25p6h")
+text = "READY?"
+
+[node name="Client" type="Node" parent="."]
+script = ExtResource("4_wndox")
